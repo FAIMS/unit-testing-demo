@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<h:html xmlns:h="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Fill This In</h:title>
+    <model>
+      <instance>
+        <faims id="Fill_This_In">
+          <style>
+            <orientation>
+              <orientation/>
+            </orientation>
+            <even>
+              <layout_weight/>
+            </even>
+            <large>
+              <layout_weight/>
+            </large>
+          </style>
+          <Login>
+            <Login>
+              <Logger_ID/>
+              <Create_Ent/>
+            </Login>
+            <Autonum>
+              <Next_Ent_ID/>
+              <Next_Child_Ent_ID/>
+            </Autonum>
+          </Login>
+          <Ent>
+            <Ent>
+              <Ent_ID/>
+            </Ent>
+            <Children>
+              <Make_Child_Ent/>
+              <Child_Ents/>
+            </Children>
+          </Ent>
+          <Child_Ent>
+            <Child_Ent>
+              <Child_Ent_ID/>
+            </Child_Ent>
+          </Child_Ent>
+        </faims>
+      </instance>
+      <bind type="decimal" nodeset="/faims/Login/Autonum/Next_Ent_ID"/>
+      <bind type="decimal" nodeset="/faims/Login/Autonum/Next_Child_Ent_ID"/>
+      <bind type="decimal" nodeset="/faims/Ent/Ent/Ent_ID"/>
+      <bind type="decimal" nodeset="/faims/Child_Ent/Child_Ent/Child_Ent_ID"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="style">
+      <label/>
+      <group ref="orientation">
+        <label/>
+        <input ref="orientation">
+          <label>horizontal</label>
+        </input>
+      </group>
+      <group ref="even">
+        <label/>
+        <input ref="layout_weight">
+          <label>1</label>
+        </input>
+      </group>
+      <group ref="large">
+        <label/>
+        <input ref="layout_weight">
+          <label>3</label>
+        </input>
+      </group>
+    </group>
+    <group ref="Login">
+      <label>{Login}</label>
+      <group ref="Login">
+        <label>{Login}</label>
+        <select1 ref="Logger_ID">
+          <label>{Logger_ID}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>0</value>
+          </item>
+        </select1>
+        <trigger ref="Create_Ent">
+          <label>{Create_Ent}</label>
+        </trigger>
+      </group>
+      <group ref="Autonum">
+        <label>{Autonum}</label>
+        <input ref="Next_Ent_ID" faims_style_class="required">
+          <label>{Next_Ent_ID}</label>
+        </input>
+        <input ref="Next_Child_Ent_ID" faims_style_class="required">
+          <label>{Next_Child_Ent_ID}</label>
+        </input>
+      </group>
+    </group>
+    <group ref="Ent" faims_archent_type="Ent">
+      <label>{Ent}</label>
+      <group ref="Ent">
+        <label>{Ent}</label>
+        <input faims_attribute_type="measure" ref="Ent_ID" faims_attribute_name="Ent ID">
+          <label>{Ent_ID}</label>
+          <!--WARNING: No type t was given for this view; assuming it is an input-->
+        </input>
+      </group>
+      <group ref="Children" faims_scrollable="false">
+        <label>{Children}</label>
+        <trigger ref="Make_Child_Ent">
+          <label>{Make_Child_Ent}</label>
+        </trigger>
+        <select1 appearance="compact" ref="Child_Ents" faims_annotation="false" faims_certainty="false">
+          <label>{Child_Ents}</label>
+          <item>
+            <label>Options not loaded</label>
+            <value>0</value>
+          </item>
+        </select1>
+      </group>
+    </group>
+    <group ref="Child_Ent" faims_archent_type="Child Ent">
+      <label>{Child_Ent}</label>
+      <group ref="Child_Ent">
+        <label>{Child_Ent}</label>
+        <input faims_attribute_type="measure" ref="Child_Ent_ID" faims_attribute_name="Child Ent ID">
+          <label>{Child_Ent_ID}</label>
+          <!--WARNING: No type t was given for this view; assuming it is an input-->
+        </input>
+      </group>
+    </group>
+  </h:body>
+</h:html>

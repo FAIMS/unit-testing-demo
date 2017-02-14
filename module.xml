@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<module>
+
+<Login f="nodata">
+  <Login>
+    <Logger_ID t="dropdown" f="user"/>
+    <Create_Ent t="button" l="Ent"/>
+  </Login>
+  <Autonum>
+    <autonum/>
+  </Autonum>
+</Login>
+
+<Ent>
+  <Ent>
+    <Ent_ID f="id autonum"/>
+  </Ent>
+  <Children f="noscroll">
+    <Make_Child_Ent t="button" lc="Child_Ent"/>
+    <Child_Ents t="list" ec="Child_Ent"/>
+  </Children>
+</Ent>
+
+<Child_Ent>
+  <Child_Ent>
+    <Child_Ent_ID f="id autonum"/>
+  </Child_Ent>
+</Child_Ent>
+
+</module>
